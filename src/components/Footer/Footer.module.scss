@@ -1,0 +1,31 @@
+@import '../../styles/mixins-vars.scss';
+
+.footer {
+    background: var(--uiBackground);
+    padding: 20px 0;
+    color: var(--textColor);
+    box-shadow: var(--boxShadow);
+    height: auto;
+
+    &Logo {
+        font-size: 1.5rem;
+    }
+
+    &Wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media(max-width:$phoneMiddleScreen) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    &Link {
+        a {
+            text-decoration: underline;
+        }
+    }
+}

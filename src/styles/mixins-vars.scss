@@ -1,0 +1,10 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$tableScreen: 1023px;
+$phoneScreen: 767px;
+$phoneMiddleScreen: 630px;
+$middleScreen: 1200px;

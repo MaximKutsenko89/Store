@@ -1,0 +1,61 @@
+import type { CartState, Product } from "@/types/types"
+import type { RootState } from "./store"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+
+const initialState: CartState = {
+    cart: [],
+    cartIsOpen: false
+}
+
+export const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        addToCart: (state, action: PayloadAction<Product>) => {
+            const productIdToAdd = action.payload.id;
+            const updatedCart = state.cart.map(item => {
+                if (item.id === productIdToAdd) {
+                    return {
+                        ...item,
+                        count: (item.count as number) + 1,
+                    };
+                }
+                return item;
+            });
+
+            const existingItem = state.cart.find(item => item.id === productIdToAdd);
+
+            if (!existingItem) {
+                updatedCart.push({
+                    ...action.payload,
+                    count: 1
+                });
+            }
+            state.cart = updatedCart;
+        },
+        toggleCartIsOpen: (state) => {
+            state.cartIsOpen = !state.cartIsOpen
+            document.body.classList.toggle('scroll-block')
+        },
+        removeFormCart: (state, action: PayloadAction<number>) => {
+            state.cart = state.cart.filter((product) => product.id !== action.payload)
+        },
+        updatedCartByCount: (state, action: PayloadAction<{ id: number, count: number }>) => {
+            const { id, count } = action.payload
+            state.cart = state.cart.map((product) => {
+                if (id === product.id) {
+                    return {
+                        ...product,
+                        count: count
+                    }
+                }
+                return product
+            })
+        }
+    },
+
+});
+
+export const { addToCart, toggleCartIsOpen, removeFormCart, updatedCartByCount } = cartSlice.actions
+export const cartState = (state: RootState) => state.cart
+export default cartSlice.reducer

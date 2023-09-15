@@ -1,0 +1,46 @@
+@import '../../styles/mixins-vars.scss';
+
+.product {
+    &Wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    h2 {
+        margin-bottom: 1.42rem;
+        text-align: center;
+    }
+
+    &Info,
+    &Slider {
+        flex: 1;
+    }
+
+    &PriceWrap {
+        display: flex;
+        margin-bottom: 1.42rem;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &Price {
+        background: var(--uiBackground);
+        width: 250px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    &Text {
+        font-size: 1.5rem;
+        margin-bottom: 1.42rem;
+    }
+}
+
+.overflowed {
+    overflow: hidden;
+}

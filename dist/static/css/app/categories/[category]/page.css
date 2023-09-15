@@ -1,0 +1,311 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./src/components/Button/button.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 630px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --tableScreen: 1023px;
+  --phoneScreen: 767px;
+  --phoneMiddleScreen: 630px;
+  --middleScreen: 1200px;
+}
+
+body[data-theme=light] {
+  --backgroundColor: #eee;
+  --textColor: #1a1a1a;
+  --uiBackground: #fff;
+  --cardBoxShadow: 2px 2px 15px #1a1a1a;
+  --boxShadow: 5px 5px 15px #eee;
+  --buttonBorderColor: #000;
+  --buttonBackground: #e3e3e3;
+}
+
+body[data-theme=dark] {
+  --backgroundColor: #1a1a1a;
+  --textColor: #ebe6e8;
+  --uiBackground: #1f262e;
+  --cardBoxShadow: 2px 2px 15px #ffffff38;
+  --btnBorderColor: #fff;
+  --boxShadow: none;
+  --buttonBorderColor: #fff;
+  --buttonBackground: #000;
+}
+
+body {
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+}
+
+.scroll-block {
+  overflow-y: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+    padding: 0px 10px;
+  }
+}
+@media (max-width: 630px) {
+  .container {
+    padding: 0px 20px;
+    max-width: none;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 0px 10px;
+  }
+}
+
+main {
+  padding: 50px 0;
+  height: auto;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  width: max-content;
+  margin: 0 auto 1.42rem auto;
+}
+
+.page-wrapper {
+  display: grid;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.Toastify__progress-bar {
+  background: var(--textColor);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+.overflowed {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--uiBackground);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--textColor);
+  border-radius: 6px;
+}
+
+.btn {
+  background: var(--buttonBackground);
+  border: none;
+  color: var(--textColor);
+  font-weight: 700;
+  font-size: 1.1rem;
+  max-width: 200px;
+  padding: 0 10px;
+  border-radius: 5px;
+  min-height: 40px;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn svg {
+  pointer-events: none;
+}
+@media (max-width: 630px) {
+  .btn {
+    height: 50px;
+  }
+}
+.btn:hover, .btn:active {
+  opacity: 0.9;
+}
+.btn.full-width {
+  width: 100%;
+}
+.btn.icon {
+  width: 40px;
+  height: 40px;
+}
+.btn.cart-btn {
+  justify-content: space-evenly;
+}
+.btn.center {
+  margin: 0 auto;
+}
+.btn.center-bottom {
+  margin: auto auto 0 auto;
+}
+body[data-theme=light] .btn.transparent {
+  background: transparent;
+  color: #000;
+}
+body[data-theme=dark] .btn.transparent {
+  background: transparent;
+  color: #fff;
+}
+
+.btn-border {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 5px;
+  transition: stroke-dashoffset 0.5s;
+  border-radius: 5px;
+}
+.btn-border rect {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke: var(--buttonBorderColor);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.loading-icon {
+  vertical-align: middle;
+  animation: rotation 0.6s infinite;
+}
+
+.btn:is(:hover, :active) .btn-border {
+  stroke-dashoffset: 500;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[9].use[5]!./src/components/ProductCard/productCard.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.productCard_card__s2HAu {
+  padding: 10px;
+  border-radius: 5px;
+  height: auto;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: center;
+  background: var(--uiBackground);
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  overflow: hidden;
+}
+.productCard_card__s2HAu:hover {
+  box-shadow: 5px 5px 15px #000;
+}
+@media (max-width: 630px) {
+  .productCard_card__s2HAu {
+    width: 100%;
+  }
+}
+.productCard_cardImg__q1J3e {
+  object-fit: contain;
+  margin: 0 auto;
+}
+.productCard_cardImgHolder__2kLSe {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+.productCard_cardPriceOld__r4wNK span {
+  text-decoration: line-through;
+}
+.productCard_cardPriceNew__X7Imj {
+  font-size: 1.5rem;
+}
+.productCard_cardTitle__Q1SX_ {
+  font-size: 1.5rem;
+}
+.productCard_cardButtonWrap__IRbQo {
+  display: flex;
+  margin-top: auto;
+}
+
+.productCard_overflowed__OyJZ3 {
+  overflow: hidden;
+}
+
+.productCard_card__s2HAu:hover .productCard_cardBorder__IKZr4 {
+  stroke-dashoffset: 3000;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[9].use[5]!./src/components/ProductsList/productList.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.productList_homeInner__YhSda {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1.42rem;
+  grid-gap: 10px;
+}
+
+.productList_notFound__1Dg44 {
+  width: 100%;
+  height: 250px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

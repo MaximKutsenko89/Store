@@ -1,0 +1,118 @@
+@import '../../styles/mixins-vars.scss';
+
+.header {
+    background: var(--uiBackground);
+    padding: 10px 0;
+    box-shadow: var(--boxShadow);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    &Btn {
+        background: transparent;
+        cursor: pointer;
+        border: none;
+        color: inherit;
+        font-size: 1.5rem;
+        @include flexCenter;
+        position: relative;
+        z-index: 2;
+    }
+
+
+    &ArrowClosed {
+        transform: rotate(0);
+        transition: transform 0.3s;
+    }
+
+    &ArrowOpened {
+        transform: rotate(180deg);
+        transition: transform 0.3s;
+    }
+
+    &Nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+
+    &Logo {
+        flex: 1;
+    }
+
+    &CartIcon {
+        @include flexCenter;
+        position: relative;
+        cursor: pointer;
+        width: max-content;
+        min-width: 40px;
+        padding: 5px;
+        height: 40px;
+        border: 1px solid;
+        border-radius: 5px;
+
+    }
+
+    &List {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+
+        @media(max-width:$tableScreen) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media(max-width:$phoneScreen) {
+            font-size: 1.5rem;
+            grid-template-columns: 1fr;
+        }
+
+        padding: 20px 50px;
+        width: 100%;
+        position: absolute;
+        z-index: 99;
+        left:0;
+        background: var(--uiBackground);
+
+        &Item {
+            position: relative;
+            width: max-content;
+
+            &::before {
+                position: absolute;
+                display: block;
+                content: '';
+                width: 0%;
+                height: 2px;
+                bottom: -4px;
+                left: 0;
+                background: var(--textColor);
+                transition: width 0.3s;
+            }
+
+            &:hover.headerListItem::before {
+                width: 100%;
+            }
+        }
+    }
+
+    &Icons {
+        display: flex;
+        gap: 0.5rem;
+    }
+}
+
+
+.activeLink {
+    color: red;
+}
+
+.listOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+}

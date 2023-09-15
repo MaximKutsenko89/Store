@@ -1,0 +1,68 @@
+@import '../../styles/mixins-vars.scss';
+
+.slider {
+    flex: 1;
+
+    img {
+        object-fit: cover;
+    }
+
+    &Inner {
+        display: flex;
+        overflow: hidden;
+        width: 300px;
+        margin: 0 auto;
+        gap: 5px;
+        margin-bottom: 1.42rem;
+
+        @media(max-width:$phoneScreen) {
+            width: 200px;
+        }
+    }
+
+    &Arrows {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &Arrow {
+        cursor: pointer;
+    }
+
+    &ImgWrap {
+        transition: transform .5s linear;
+        position: relative;
+        width: 100%;
+        height: 300px;
+
+    }
+
+    &Img {
+        transition: transform .5s linear;
+
+        @media(max-width:$phoneScreen) {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    &Small {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        img {
+            cursor: pointer;
+        }
+
+        @media(max-width:$phoneMiddleScreen) {
+            display: none;
+        }
+    }
+}
