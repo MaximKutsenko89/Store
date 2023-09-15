@@ -4,7 +4,6 @@ import { useTheme } from './ThemeSwitcher/ThemeProvider'
 import { Slide } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
 
-
 export const ToastCustomContainer = () => {
     const { theme } = useTheme()
     return (
