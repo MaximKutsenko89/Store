@@ -1,5 +1,5 @@
 'use client'
-import { FC, useRef, useState } from 'react'
+import { FC, useRef } from 'react'
 import type { Product } from '@/types/types'
 import Image from 'next/image'
 import { priceFormatter, priceWithDiscount } from '@/utils'
@@ -10,9 +10,9 @@ import { useRouter } from 'next/navigation'
 import { scaleVariants, slideUpVariants } from '@/utils/animationVariants'
 import DoneIcon from '@mui/icons-material/Done';
 import { useCartButtonHandler } from '@/utils/hooks'
-import styles from './productCard.module.scss'
 import { useAppDispatch } from '@/redux/hooks'
 import { addToCart } from '@/redux/cartReducer'
+import styles from './productCard.module.scss'
 
 export const ProductCard: FC<Product> = (
     { id, title, description, discountPercentage, rating, thumbnail, price }: Product) => {

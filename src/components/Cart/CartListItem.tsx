@@ -5,7 +5,6 @@ import { useAppDispatch } from '@/redux/hooks'
 import { priceFormatter, priceWithDiscount } from '@/utils'
 import Image from 'next/image'
 import type { Product } from '@/types/types'
-// @ts-ignore
 import { toast } from 'react-toastify'
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import styles from './Cart.module.scss'

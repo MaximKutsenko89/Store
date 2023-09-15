@@ -1,4 +1,3 @@
-
 import styles from './Loader.module.scss'
 import SyncOutlinedIcon from '@mui/icons-material/SyncOutlined';
 
