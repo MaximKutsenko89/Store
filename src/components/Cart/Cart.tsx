@@ -50,7 +50,9 @@ export const Cart = () => {
                             exit={{ scale: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <ProductionQuantityLimitsIcon className={styles.cartIcon} />
+                            <ProductionQuantityLimitsIcon
+                                style={{ width: 100, height: 100 }}
+                            />
                             <h2 className='title'>Cart is empty</h2>
                             <Button
                                 className='btn full-width center'
