@@ -10,6 +10,7 @@ import { formatCategory } from "@/utils"
 import { useAppSelector, useAppDispatch } from "@/redux/hooks"
 import { cartState } from "@/redux/cartReducer"
 import { toggleCartIsOpen } from "@/redux/cartReducer"
+import clsx from "clsx"
 import styles from './Header.module.scss'
 
 export const Header: FC = () => {
@@ -32,10 +33,9 @@ export const Header: FC = () => {
                         >
                             Categories
                             <ArrowDropDownIcon
-                                className={categoriesOpen ?
-                                    styles.headerArrowOpened
-                                    :
-                                    styles.headerArrowClosed}
+                                className={clsx(styles.headerArrowClosed, {
+                                    [styles.headerArrowOpened]: categoriesOpen
+                                })}
                             />
                         </button>
                         <div className={styles.headerIcons} onClick={() => setCategoriesOpen(false)}>

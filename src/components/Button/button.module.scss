@@ -1,5 +1,4 @@
 @import '../../styles/mixins-vars.scss';
-@import '../../styles/global.scss';
 
 .btn {
   background: var(--buttonBackground);
@@ -30,7 +29,7 @@
     opacity: 0.9;
   }
 
-  &.full-width {
+  &.fullWidth {
     width: 100%;
   }
 
@@ -39,7 +38,7 @@
     height: 40px;
   }
 
-  &.cart-btn {
+  &.cartBtn {
     justify-content: space-evenly;
   }
 
@@ -47,7 +46,7 @@
     margin: 0 auto;
   }
 
-  &.center-bottom {
+  &.centerBottom {
     margin: auto auto 0 auto;
   }
 
@@ -62,7 +61,7 @@
   }
 }
 
-.btn-border {
+.btnBorder {
   position: absolute;
   z-index: -1;
   top: 0;
@@ -86,12 +85,12 @@
   }
 }
 
-.loading-icon {
+.loadingIcon {
   vertical-align: middle;
   animation: rotation .6s infinite;
 }
 
-.btn:is(:hover, :active) .btn-border {
+.btn:is(:hover, :active) .btnBorder {
   stroke-dashoffset: 500;
 }
 

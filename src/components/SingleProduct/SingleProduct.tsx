@@ -15,6 +15,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { useAppDispatch } from '@/redux/hooks'
 import { addToCart } from '@/redux/cartReducer'
 import { Product } from '@/types/types'
+import clsx from 'clsx'
 import styles from './SingleProduct.module.scss'
 
 export const SingleProduct = ({ id }: { id: number }) => {
@@ -86,7 +87,7 @@ export const SingleProduct = ({ id }: { id: number }) => {
                             Old price:  {priceFormatter(product?.price as number)}
                         </motion.div>
                     </div>
-                    <div className={[styles.overflowed, styles.productText].join(' ')}>
+                    <div className={clsx(styles.overflowed, styles.productText)}>
                         <motion.p
                             initial="hidden"
                             animate="show"
@@ -101,7 +102,9 @@ export const SingleProduct = ({ id }: { id: number }) => {
                     <Button
                         border={true}
                         variant='button'
-                        className='btn center-bottom full-width  cart-btn'
+                        centerBottom
+                        fullWidth
+                        cartBtn
                         disabled={productAdded}
                         onClick={buttonClickHandler}
                     >

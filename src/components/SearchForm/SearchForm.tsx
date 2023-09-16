@@ -47,7 +47,7 @@ export const SearchForm = () => {
                         variant='button'
                         border={true}
                         loading={false}
-                        className='btn transparent inline'
+                        transparent
                     >
                         Search
                     </Button>

@@ -116,7 +116,9 @@ export const ProductCard: FC<Product> = (
                 <Button
                     border={true}
                     variant='button'
-                    className='btn center full-width center-bottom cart-btn'
+                    centerBottom
+                    fullWidth
+                    cartBtn
                     onClick={buttonClickHandler}
                     disabled={productAdded}
 

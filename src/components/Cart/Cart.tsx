@@ -7,6 +7,7 @@ import { Button } from '../Button/Button'
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import { AnimatePresence, motion, } from 'framer-motion'
 import { CartListItem } from './CartListItem'
+import clsx from 'clsx'
 import styles from './Cart.module.scss'
 
 export const Cart = () => {
@@ -44,7 +45,7 @@ export const Cart = () => {
                         data-name='overlay'
                     >
                         <motion.div
-                            className={[styles.cart, styles.cartCenter].join(' ')}
+                            className={clsx(styles.cart, styles.cartCenter)}
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0 }}
@@ -55,7 +56,8 @@ export const Cart = () => {
                             />
                             <h2 className='title'>Cart is empty</h2>
                             <Button
-                                className='btn full-width center'
+                                fullWidth
+                                center
                                 variant='button'
                                 border={false}
                                 onClick={() => dispatch(toggleCartIsOpen())}
@@ -109,7 +111,8 @@ export const Cart = () => {
                                     Total price: {priceFormatter(totalPrice)}</h3>
                                 <Button
                                     variant='button'
-                                    className='btn center full-width'
+                                    center
+                                    fullWidth
                                     loading={false}
                                     border={true}
                                 >

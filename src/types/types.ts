@@ -6,13 +6,19 @@ export type ThemeContextType = {
 };
 export type ButtonProps = {
     children: React.ReactNode,
-    className: string,
     variant: 'button' | 'link',
     href?: string,
     border: boolean,
     onClick?: () => void,
     loading?: boolean,
     disabled?: boolean,
+
+    fullWidth?:boolean,
+    icon?:boolean,
+    cartBtn?:boolean,
+    center?:boolean,
+    centerBottom?:boolean,
+    transparent?:boolean,
 }
 
 export type Response = {

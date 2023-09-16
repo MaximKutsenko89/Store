@@ -39,7 +39,8 @@ export const ProductsList = () => {
       {limit < 100 && (
         <Button
           loading={isFetching}
-          className='btn center full-width'
+          center
+          fullWidth
           variant='button'
           border={false}
           onClick={() => setLimit(prev => prev < 100 ? prev + 10 : prev)}
