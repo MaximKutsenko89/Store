@@ -124,7 +124,7 @@ main {
 }
 
 .Toastify__progress-bar {
-  background: var(--textColor);
+  background: var(--textColor) !important;
 }
 
 ::-webkit-scrollbar {
@@ -1102,6 +1102,17 @@ body[data-theme=dark] .button_btn__vOh9h.button_transparent__h15iu {
 .Cart_cartInfo__3HfVE h3 {
   margin-bottom: 1.42rem;
   text-align: center;
+}
+.Cart_cartInfoInner__1NtPm {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+@media (max-width: 630px) {
+  .Cart_cartInfoInner__1NtPm {
+    position: static;
+  }
 }
 .Cart_cartListCountButton__wEYtL {
   background: var(--backgroundColor);

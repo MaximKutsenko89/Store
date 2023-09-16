@@ -107,17 +107,20 @@ export const Cart = () => {
                                 </AnimatePresence>
                             </ul>
                             <div className={styles.cartInfo}>
-                                <h3>{productsInCart} product{productsInCart > 1 ? 's' : ''} <br />
-                                    Total price: {priceFormatter(totalPrice)}</h3>
-                                <Button
-                                    variant='button'
-                                    center
-                                    fullWidth
-                                    loading={false}
-                                    border={true}
-                                >
-                                    Order
-                                </Button>
+                                <div className={styles.cartInfoInner}>
+                                    <h3>{productsInCart} product{productsInCart > 1 ? 's' : ''} <br />
+                                        Total price: {priceFormatter(totalPrice)}</h3>
+                                    <Button
+                                        variant='button'
+                                        center
+                                        fullWidth
+                                        loading={false}
+                                        border={true}
+                                    >
+                                        Order
+                                    </Button>
+                                </div>
+
                             </div>
                         </div>
                     </motion.div>

@@ -126,7 +126,7 @@ main {
 }
 
 .Toastify__progress-bar {
-  background: var(--textColor);
+  background: var(--textColor)!important;
 }
 
 ::-webkit-scrollbar {

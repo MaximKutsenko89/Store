@@ -116,7 +116,14 @@
             text-align: center;
         }
     }
-
+    &InfoInner {
+        position: sticky;
+        top: 0;
+        right: 0;
+        @media(max-width:$phoneMiddleScreen){
+            position: static;
+        }
+    }
     &ListCountButton {
         background: var(--backgroundColor);
         color: var(--textColor);
