@@ -8,6 +8,7 @@ import { ToastCustomContainer } from './ToastCustomContainer'
 import { Cart } from './Cart/Cart'
 
 export function Providers({ children }: { children: ReactNode }) {
+    
     return (
         <Provider store={store}>
             <div className="page-wrapper">

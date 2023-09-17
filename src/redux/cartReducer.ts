@@ -2,8 +2,11 @@ import type { CartState, Product } from "@/types/types"
 import type { RootState } from "./store"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
+const cartDataFromLocalStorage = typeof window !== 'undefined' && localStorage.getItem('cart');
+const cartFromLocalStorage = cartDataFromLocalStorage ? JSON.parse(cartDataFromLocalStorage) : [];
+
 const initialState: CartState = {
-    cart: [],
+    cart: cartFromLocalStorage,
     cartIsOpen: false
 }
 
@@ -32,6 +35,7 @@ export const cartSlice = createSlice({
                 });
             }
             state.cart = updatedCart;
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         toggleCartIsOpen: (state) => {
             state.cartIsOpen = !state.cartIsOpen
@@ -39,6 +43,7 @@ export const cartSlice = createSlice({
         },
         removeFormCart: (state, action: PayloadAction<number>) => {
             state.cart = state.cart.filter((product) => product.id !== action.payload)
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         updatedCartByCount: (state, action: PayloadAction<{ id: number, count: number }>) => {
             const { id, count } = action.payload
@@ -51,6 +56,7 @@ export const cartSlice = createSlice({
                 }
                 return product
             })
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         }
     },
 

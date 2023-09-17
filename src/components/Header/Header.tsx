@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
 import { useFetchCategoriesListQuery } from "@/redux/api"
-import { useState, FC } from "react"
+import { useState, FC, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -19,6 +19,12 @@ export const Header: FC = () => {
     const { cart } = useAppSelector(cartState)
     const dispatch = useAppDispatch()
     const productsInCart = cart.reduce((accum, elem) => accum += (elem.count as number), 0)
+    const [productsInCartChecked, setProductsInCartChecked] = useState(0)
+    
+    useEffect(() => {
+        setProductsInCartChecked(productsInCart)
+    }, [productsInCart])
+    
     return (
         <>
             <header className={styles.header}>
@@ -45,7 +51,7 @@ export const Header: FC = () => {
                                 title="Cart"
                             >
                                 <ShoppingCartOutlinedIcon />
-                                {cart.length > 0 && productsInCart}
+                                {productsInCartChecked > 0 && productsInCartChecked}
                             </div>
                             <ThemeSwitcher />
                         </div>

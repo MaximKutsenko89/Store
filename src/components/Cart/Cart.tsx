@@ -31,25 +31,30 @@ export const Cart = () => {
             dispatch(toggleCartIsOpen())
         }
     }
+    const cartAnimations = {
+        initial: { x: '100%' },
+        animate: { x: 0 },
+        exit: { x: '100%' },
+    }
+    const overlayAnimations = {
+        initial: { opacity: 0, },
+        animate: { opacity: 1, },
+        exit: { opacity: 0, },
+        transition: { duration: 0.5 },
+    }
     if (cart.length === 0) {
         return (
             <AnimatePresence>
                 {cartIsOpen && (
                     <motion.div
-                        initial={{ opacity: 0, }}
-                        animate={{ opacity: 1, }}
-                        exit={{ opacity: 0, }}
-                        transition={{ duration: 0.5 }}
+                        {...overlayAnimations}
                         className={styles.cartOverlay}
                         onClick={overlayClickHandler}
                         data-name='overlay'
                     >
                         <motion.div
                             className={clsx(styles.cart, styles.cartCenter)}
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0 }}
-                            transition={{ duration: 0.5 }}
+                            {...cartAnimations}
                         >
                             <ProductionQuantityLimitsIcon
                                 style={{ width: 100, height: 100 }}
@@ -75,27 +80,17 @@ export const Cart = () => {
         <AnimatePresence>
             {cartIsOpen && (
                 <motion.div
-                    initial={{ opacity: 0, }}
-                    animate={{ opacity: 1, }}
-                    exit={{ opacity: 0, }}
-                    transition={{ duration: 0.5 }}
+                    {...overlayAnimations}
                     className={styles.cartOverlay}
                     onClick={overlayClickHandler}
                     data-name='overlay'
                 >
                     <motion.div
                         className={styles.cart}
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
+                        {...cartAnimations}
                         transition={{ duration: 0.5 }}
                     >
-                        <span
-                            className={styles.cartListCloseBtn}
-                            onClick={() => dispatch(toggleCartIsOpen())}
-                        >
-                            &times;
-                        </span>
+
                         <div className={styles.cartWrap}>
                             <ul className={styles.cartList}>
                                 <AnimatePresence>
@@ -108,6 +103,12 @@ export const Cart = () => {
                             </ul>
                             <div className={styles.cartInfo}>
                                 <div className={styles.cartInfoInner}>
+                                    <span
+                                        className={styles.cartListCloseBtn}
+                                        onClick={() => dispatch(toggleCartIsOpen())}
+                                    >
+                                        &times;
+                                    </span>
                                     <h3>{productsInCart} product{productsInCart > 1 ? 's' : ''} <br />
                                         Total price: {priceFormatter(totalPrice)}</h3>
                                     <Button
