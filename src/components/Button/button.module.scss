@@ -1,102 +1,100 @@
-@import '../../styles/mixins-vars.scss';
+@import "../../styles/mixins-vars.scss";
 
 .btn {
-  background: var(--buttonBackground);
-  border: none;
-  color: var(--textColor);
-  font-weight: 700;
-  font-size: 1.1rem;
-  max-width: 200px;
-  padding: 0 10px;
-  border-radius: 5px;
-  min-height: 40px;
-  height: auto;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  @include flexCenter;
+   background: var(--buttonBackground);
+   border: none;
+   color: var(--textColor);
+   font-weight: 700;
+   font-size: 1.1rem;
+   max-width: 200px;
+   padding: 0 10px;
+   border-radius: 5px;
+   min-height: 40px;
+   height: auto;
+   cursor: pointer;
+   position: relative;
+   z-index: 2;
+   @include flexCenter;
 
-  svg {
-    pointer-events: none;
-  }
+   svg {
+      pointer-events: none;
+   }
 
-  @media(max-width:$phoneMiddleScreen) {
-    height: 50px;
-  }
+   @media (max-width: $phoneMiddleScreen) {
+      height: 50px;
+   }
 
-  &:hover,
-  &:active {
-    opacity: 0.9;
-  }
+   &:hover,
+   &:active {
+      opacity: 0.9;
+   }
 
-  &.fullWidth {
-    width: 100%;
-  }
+   &.fullWidth {
+      width: 100%;
+   }
 
-  &.icon {
-    width: 40px;
-    height: 40px;
-  }
+   &.icon {
+      width: 40px;
+      height: 40px;
+   }
 
-  &.cartBtn {
-    justify-content: space-evenly;
-  }
+   &.cartBtn {
+      justify-content: space-evenly;
+   }
 
-  &.center {
-    margin: 0 auto;
-  }
+   &.center {
+      margin: 0 auto;
+   }
 
-  &.centerBottom {
-    margin: auto auto 0 auto;
-  }
+   &.centerBottom {
+      margin: auto auto 0 auto;
+   }
 
-  body[data-theme="light"] &.transparent {
-    background: transparent;
-    color: #000;
-  }
+   body[data-theme="light"] &.transparent {
+      background: transparent;
+      color: #000;
+   }
 
-  body[data-theme="dark"] &.transparent {
-    background: transparent;
-    color: #fff;
-  }
+   body[data-theme="dark"] &.transparent {
+      background: transparent;
+      color: #fff;
+   }
 }
 
 .btnBorder {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  stroke-width: 5px;
-  transition: stroke-dashoffset .5s;
-  border-radius: 5px;
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   stroke-dasharray: 1000;
+   stroke-dashoffset: 1000;
+   stroke-width: 5px;
+   transition: stroke-dashoffset 0.5s;
+   border-radius: 5px;
 
-
-  rect {
-    width: 100%;
-    height: 100%;
-    fill: transparent;
-    stroke: var(--buttonBorderColor);
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
+   rect {
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke: var(--buttonBorderColor);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+   }
 }
 
 .loadingIcon {
-  vertical-align: middle;
-  animation: rotation .6s infinite;
+   vertical-align: middle;
+   animation: rotation 0.6s infinite;
 }
 
 .btn:is(:hover, :active) .btnBorder {
-  stroke-dashoffset: 500;
+   stroke-dashoffset: 500;
 }
 
 @keyframes rotation {
-
-  to {
-    transform: rotate(360deg);
-  }
+   to {
+      transform: rotate(360deg);
+   }
 }

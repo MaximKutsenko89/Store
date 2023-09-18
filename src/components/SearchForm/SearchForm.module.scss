@@ -1,74 +1,73 @@
-@import '../../styles/mixins-vars.scss';
+@import "../../styles/mixins-vars.scss";
 
 .searchInputWrap {
-    text-align: center;
-    margin-bottom: 1.42rem;
-
+   text-align: center;
+   margin-bottom: 1.42rem;
 }
 
 .searchInputGroup {
-    display: inline-block;
-    position: relative;
+   display: inline-block;
+   position: relative;
 }
 
 .input {
-    display: block;
-    margin-inline: auto;
-    padding: 5px 10px;
-    background: transparent;
-    border: none;
-    color: var(--textColor);
-    border-radius: 5px;
-    height: 40px;
-    width: 300px;
-    font-size: 1.1rem;
-    transform: scale(1);
-    position: relative;
+   display: block;
+   margin-inline: auto;
+   padding: 5px 10px;
+   background: transparent;
+   border: none;
+   color: var(--textColor);
+   border-radius: 5px;
+   height: 40px;
+   width: 300px;
+   font-size: 1.1rem;
+   transform: scale(1);
+   position: relative;
 
-    @media(max-width:$phoneMiddleScreen) {
-        height: 50px;
-        width: 100%;
-    }
+   @media (max-width: $phoneMiddleScreen) {
+      height: 50px;
+      width: 100%;
+   }
 }
 
 .inputBorder {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    stroke-width: 5px;
-    transition: stroke-dashoffset .5s linear;
-    border-radius: 5px;
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   stroke-dasharray: 1000;
+   stroke-dashoffset: 1000;
+   stroke-width: 5px;
+   transition: stroke-dashoffset 0.5s linear;
+   border-radius: 5px;
 
-    rect {
-        width: 100%;
-        height: 100%;
-        fill: transparent;
-        stroke: var(--textColor);
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
+   rect {
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke: var(--textColor);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+   }
 }
 
-.input:is(:focus)+.inputBorder {
-    stroke-dashoffset: 300;
-    fill: #fff;
+.input:is(:focus) + .inputBorder {
+   stroke-dashoffset: 300;
+   fill: #fff;
 }
 
 .searchIcon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   transform: translateY(-50%);
+   pointer-events: none;
 }
 
 .formGroup {
-    @include flexCenter;
-    flex-wrap: wrap;
-    gap: 10px;
+   @include flexCenter;
+   flex-wrap: wrap;
+   gap: 10px;
 }

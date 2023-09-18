@@ -1,21 +1,21 @@
 .loaderWrap {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--backgroundColor);
-  z-index: 9999;
+   position: fixed;
+   inset: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--backgroundColor);
+   z-index: 9999;
 
-  svg {
-    width: 100px;
-    height: 100px;
-    animation: rotation 1s infinite linear;
-  }
+   svg {
+      width: 100px;
+      height: 100px;
+      animation: rotation 1s infinite linear;
+   }
 }
 
 @keyframes rotation {
-  to {
-    transform: rotate(360deg);
-  }
+   to {
+      transform: rotate(360deg);
+   }
 }

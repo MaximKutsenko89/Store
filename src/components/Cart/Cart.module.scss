@@ -1,142 +1,139 @@
-@import '../../styles/mixins-vars.scss';
+@import "../../styles/mixins-vars.scss";
 
 .cart {
-    background: var(--uiBackground);
-    padding: 20px;
-    border-radius: 5px;
-    overflow-y: scroll;
-    width: 90%;
-    height: 90%;
-    position: relative;
+   background: var(--uiBackground);
+   padding: 20px;
+   border-radius: 5px;
+   overflow-y: scroll;
+   width: 90%;
+   height: 90%;
+   position: relative;
 
-    @media(max-width:$phoneMiddleScreen) {
-        width: 100%;
-        height: 100%;
-    }
+   @media (max-width: $phoneMiddleScreen) {
+      width: 100%;
+      height: 100%;
+   }
 
-    &::-webkit-scrollbar {
-        width: 2px;
-    }
+   &::-webkit-scrollbar {
+      width: 2px;
+   }
 
-    &::-webkit-scrollbar-track {
-        background-color: var(--uiBackground);
+   &::-webkit-scrollbar-track {
+      background-color: var(--uiBackground);
+   }
 
-    }
+   &::-webkit-scrollbar-thumb {
+      background-color: var(--textColor);
+      border-radius: 6px;
+   }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--textColor);
-        border-radius: 6px;
-    }
+   &Wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
 
-    &Wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
+      @media (max-width: $phoneMiddleScreen) {
+         flex-direction: column-reverse;
+      }
+   }
 
-        @media(max-width:$phoneMiddleScreen) {
-            flex-direction: column-reverse;
-        }
-    }
+   &Overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      background: rgb(0 0 0 / 64%);
+      z-index: 999;
+      @include flexCenter;
+      flex-direction: column;
+   }
 
-    &Overlay {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        inset: 0;
-        background: rgb(0 0 0 / 64%);
-        z-index: 999;
-        @include flexCenter;
-        flex-direction: column;
-    }
+   &List {
+      flex: 1;
 
-    &List {
-        flex: 1;
+      @media (max-width: $phoneMiddleScreen) {
+         width: 100%;
+         font-size: 1.5rem;
+      }
+   }
 
-        @media(max-width:$phoneMiddleScreen) {
-            width: 100%;
-            font-size: 1.5rem;
-        }
-    }
+   &Icon {
+      width: 100px;
+      height: 100px;
+   }
 
-    &Icon {
-        width: 100px;
-        height: 100px;
-    }
+   &ListItem {
+      @include flexCenter;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--uiBackground);
+      padding: 10px;
+      margin-bottom: 1.42rem;
+      border-radius: 5px;
+      position: relative;
+      border: 2px solid var(--textColor);
+      padding: 10px;
 
-    &ListItem {
-        @include flexCenter;
-        justify-content: space-between;
-        gap: 10px;
-        background: var(--uiBackground);
-        padding: 10px;
-        margin-bottom: 1.42rem;
-        border-radius: 5px;
-        position: relative;
-        border: 2px solid var(--textColor);
-        padding: 10px;
+      @media (max-width: $phoneMiddleScreen) {
+         width: 100%;
+      }
+   }
 
-        @media(max-width:$phoneMiddleScreen) {
-            width: 100%;
-        }
-    }
+   &ListImage {
+      grid-area: image;
+   }
 
-    &ListImage {
-        grid-area: image;
-    }
+   &ListInfo {
+      h3 {
+         margin-bottom: 1.42rem;
+         font-size: 1rem;
+      }
+   }
 
-    &ListInfo {
-        h3 {
-            margin-bottom: 1.42rem;
-            font-size: 1rem;
-        }
-    }
+   &ListCount {
+      @include flexCenter;
+      font-size: 1.5rem;
+   }
 
-    &ListCount {
-        @include flexCenter;
-        font-size: 1.5rem
-    }
+   &ListCloseBtn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      cursor: pointer;
+      font-size: 2rem;
+   }
 
-    &ListCloseBtn {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        cursor: pointer;
-        font-size: 2rem;
-    }
+   &Info {
+      width: max-content;
+      margin-inline: auto;
+      font-size: 2rem;
+      flex: 1;
 
-    &Info {
-
-        width: max-content;
-        margin-inline: auto;
-        font-size: 2rem;
-        flex: 1;
-
-        h3 {
-            margin-bottom: 1.42rem;
-            text-align: center;
-        }
-    }
-    &InfoInner {
-        position: sticky;
-        top: 0;
-        right: 0;
-        @media(max-width:$phoneMiddleScreen){
-            position: static;
-        }
-    }
-    &ListCountButton {
-        background: var(--backgroundColor);
-        color: var(--textColor);
-        border: none;
-        width: 30px;
-        height: 30px;
-        border-radius: 5px;
-        cursor: pointer;
-
-    }
+      h3 {
+         margin-bottom: 1.42rem;
+         text-align: center;
+      }
+   }
+   &InfoInner {
+      position: sticky;
+      top: 0;
+      right: 0;
+      @media (max-width: $phoneMiddleScreen) {
+         position: static;
+      }
+   }
+   &ListCountButton {
+      background: var(--backgroundColor);
+      color: var(--textColor);
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+   }
 }
 
 .cartCenter {
-    @include flexCenter;
-    flex-direction: column;
+   @include flexCenter;
+   flex-direction: column;
 }
