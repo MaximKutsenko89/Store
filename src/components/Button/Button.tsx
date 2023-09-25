@@ -13,7 +13,7 @@ export const Spinner = () => (
    <SyncOutlinedIcon className={styles.loadingIcon} />
 );
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
    children,
    variant,
    href,
@@ -27,7 +27,7 @@ export const Button = ({
    center,
    centerBottom,
    transparent,
-}: ButtonProps) => {
+}) => {
    const buttonClassNames = clsx(styles.btn, {
       [styles.icon]: icon,
       [styles.fullWidth]: fullWidth,

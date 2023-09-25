@@ -1,11 +1,12 @@
 "use client";
 import { ToastContainer, toast } from "react-toastify";
-import { useTheme } from "./ThemeSwitcher/ThemeProvider";
+import { useAppSelector } from "@/redux/hooks";
 import { Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { themeState } from "@/redux/themeReducer";
 
 export const ToastCustomContainer = () => {
-   const { theme } = useTheme();
+   const { theme } = useAppSelector(themeState);
    return (
       <ToastContainer
          position={toast.POSITION.BOTTOM_LEFT}

@@ -1,5 +1,5 @@
-import styles from "./Loader.module.scss";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
+import styles from "./Loader.module.scss";
 
 export const Loader = () => {
    return (

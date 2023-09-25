@@ -1,7 +1,6 @@
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { Providers } from "@/components/Providers";
-import { ThemeProvider } from "@/components/ThemeSwitcher/ThemeProvider";
 import { Metadata } from "next";
 import "@/styles/global.scss";
 
@@ -16,13 +15,11 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body data-theme="dark">
-            <ThemeProvider>
-               <Providers>
-                  <Header />
-                  {children}
-                  <Footer />
-               </Providers>
-            </ThemeProvider>
+            <Providers>
+               <Header />
+               {children}
+               <Footer />
+            </Providers>
          </body>
       </html>
    );

@@ -2,7 +2,6 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export type ThemeContextType = {
    theme: "dark" | "light";
-   toggleTheme: () => void;
 };
 export type ButtonProps = {
    children: React.ReactNode;

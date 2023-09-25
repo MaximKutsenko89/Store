@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductsList } from "@/components/ProductsList/ProductsList";
-
 export const metadata: Metadata = {
    title: "Home",
    description: "Next test",
