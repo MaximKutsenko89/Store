@@ -13,7 +13,6 @@ import { useCartButtonHandler } from "@/utils/hooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { addToCart } from "@/redux/cartReducer";
 import styles from "./productCard.module.scss";
-import Head from "next/head";
 
 export const ProductCard: FC<Product> = (props: Product) => {
    const router = useRouter();
@@ -22,7 +21,7 @@ export const ProductCard: FC<Product> = (props: Product) => {
       props.discountPercentage
    );
    const cardRef = useRef(null);
-   const isInView = useInView(cardRef, { once: true, amount: 0.2 });
+   const isInView = useInView(cardRef, { once: true });
    const dispatch = useAppDispatch();
    const [successClickHandler, productAdded] = useCartButtonHandler(
       props.id,
@@ -32,19 +31,14 @@ export const ProductCard: FC<Product> = (props: Product) => {
 
    function buttonClickHandler() {
       successClickHandler();
-      dispatch(
-         addToCart(props)
-      );
+      dispatch(addToCart(props));
    }
    function cardClickHandler(
       event: React.MouseEvent<HTMLDivElement, MouseEvent>
    ) {
       const target = event.target as HTMLElement;
-      if (
-         target.tagName === "BUTTON" ||
-         target.tagName === "SVG" ||
-         target.tagName === "PATH"
-      ) {
+      const tagNames = ["BUTTON", "SVG", "PATH"];
+      if (tagNames.includes(target.tagName)) {
          return false;
       } else {
          router.push(`/products/${props.id}`);
@@ -59,7 +53,6 @@ export const ProductCard: FC<Product> = (props: Product) => {
          variants={slideUpVariants(0.5)}
          className={styles.card}
          onClick={cardClickHandler}
-
       >
          <div className={styles.cardPrice}>
             <div className={styles.overflowed}>
