@@ -1,15 +1,23 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { fetchData } from "@/services/index";
 import { formatCategory } from "@/utils";
 import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { Response } from "@/types/types";
-import styles from "@/components/ProductsList/productList.module.scss";
 import { AnimatedTitle } from "@/components/AnimatedTitle/AnimatedTitle";
+import styles from "@/components/ProductsList/productList.module.scss";
 
-export const metadata: Metadata = {
-   title: "Categories",
-   description: "Next test",
+type Props = {
+   params: { category: string };
+   searchParams: { [key: string]: string | string[] | undefined };
 };
+export async function generateMetadata(
+   { params, searchParams }: Props,
+   parent: ResolvingMetadata
+): Promise<Metadata> {
+   return {
+      title: params.category[0].toUpperCase() + params.category.slice(1),
+   };
+}
 
 export default async function Category({
    params,

@@ -30,7 +30,7 @@ export const ProductsList = () => {
                return <ProductCard key={item.id} {...item} />;
             })}
          </div>
-         {limit < 100 && (
+         {limit < 100 && !isLoading && (
             <Button
                loading={isFetching}
                center

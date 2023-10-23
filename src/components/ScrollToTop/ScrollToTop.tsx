@@ -1,8 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { useScrollProgress } from "@/utils/hooks";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+   motion,
+   useMotionValueEvent,
+   useScroll,
+   useTransform,
+} from "framer-motion";
 import styled from "@emotion/styled";
 
 const Circle = styled(motion.div)`
@@ -21,7 +25,13 @@ const Circle = styled(motion.div)`
    cursor: pointer;
 `;
 export const ScrollToTop = () => {
-   const progress = useScrollProgress();
+   const [show, setShow] = useState(false);
+   const { scrollYProgress } = useScroll();
+   const opacity = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
+
+   useMotionValueEvent(scrollYProgress, "change", (value) => {
+      return setShow(value > 0.3);
+   });
    function clickHandler() {
       window.scrollTo({
          top: 0,
@@ -30,18 +40,10 @@ export const ScrollToTop = () => {
    }
    return (
       <>
-         {progress > 10 && (
-            <AnimatePresence>
-               <Circle
-                  onClick={clickHandler}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1 }}
-               >
-                  <ArrowUpwardIcon />
-               </Circle>
-            </AnimatePresence>
+         {show && (
+            <Circle onClick={clickHandler} style={{ opacity: opacity }}>
+               <ArrowUpwardIcon />
+            </Circle>
          )}
       </>
    );

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { fetchData } from "@/services/index";
 import { Response } from "@/types/types";
-import styles from "@/components/ProductsList/productList.module.scss";
 import { NotFoundComponent } from "@/components/NotFoundComponent/NotFoundComponent";
 import { AnimatedTitle } from "@/components/AnimatedTitle/AnimatedTitle";
+import styles from "@/components/ProductsList/productList.module.scss";
 
 export const metadata: Metadata = {
    title: "Results",

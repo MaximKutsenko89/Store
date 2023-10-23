@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next13-progressbar";
 import { Button } from "../Button/Button";
 import { motion } from "framer-motion";
 import { slideUpVariants } from "@/utils/animationVariants";

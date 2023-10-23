@@ -6,46 +6,34 @@ import { priceFormatter, priceWithDiscount } from "@/utils";
 import { Button } from "../Button/Button";
 import { motion, useInView } from "framer-motion";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next13-progressbar";
 import { scaleVariants, slideUpVariants } from "@/utils/animationVariants";
 import DoneIcon from "@mui/icons-material/Done";
 import { useCartButtonHandler } from "@/utils/hooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { addToCart } from "@/redux/cartReducer";
 import styles from "./productCard.module.scss";
+import Head from "next/head";
 
-export const ProductCard: FC<Product> = ({
-   id,
-   title,
-   description,
-   discountPercentage,
-   rating,
-   thumbnail,
-   price,
-}: Product) => {
+export const ProductCard: FC<Product> = (props: Product) => {
    const router = useRouter();
-   const priceWithDiscountValue = priceWithDiscount(price, discountPercentage);
+   const priceWithDiscountValue = priceWithDiscount(
+      props.price,
+      props.discountPercentage
+   );
    const cardRef = useRef(null);
    const isInView = useInView(cardRef, { once: true, amount: 0.2 });
    const dispatch = useAppDispatch();
    const [successClickHandler, productAdded] = useCartButtonHandler(
-      id,
-      title,
+      props.id,
+      props.title,
       <DoneIcon />
    );
 
    function buttonClickHandler() {
       successClickHandler();
       dispatch(
-         addToCart({
-            id,
-            title,
-            description,
-            discountPercentage,
-            rating,
-            thumbnail,
-            price,
-         })
+         addToCart(props)
       );
    }
    function cardClickHandler(
@@ -59,7 +47,7 @@ export const ProductCard: FC<Product> = ({
       ) {
          return false;
       } else {
-         router.push(`/products/${id}`);
+         router.push(`/products/${props.id}`);
       }
    }
 
@@ -71,7 +59,7 @@ export const ProductCard: FC<Product> = ({
          variants={slideUpVariants(0.5)}
          className={styles.card}
          onClick={cardClickHandler}
-         data-id={id}
+
       >
          <div className={styles.cardPrice}>
             <div className={styles.overflowed}>
@@ -81,7 +69,7 @@ export const ProductCard: FC<Product> = ({
                   variants={slideUpVariants(0.6)}
                   className={styles.cardPriceOld}
                >
-                  Old price :<span>{priceFormatter(price)}</span>
+                  Old price :<span>{priceFormatter(props.price)}</span>
                </motion.div>
             </div>
             <div className={styles.overflowed}>
@@ -102,8 +90,8 @@ export const ProductCard: FC<Product> = ({
             className={styles.cardImgHolder}
          >
             <Image
-               src={thumbnail || ""}
-               alt={title}
+               src={props.thumbnail || ""}
+               alt={props.title}
                className={styles.cardImg}
                loading="lazy"
                fill={true}
@@ -117,7 +105,7 @@ export const ProductCard: FC<Product> = ({
                variants={slideUpVariants(0.9)}
                className={styles.cardTitle}
             >
-               {title}
+               {props.title}
             </motion.div>
          </h3>
          <div className={styles.overflowed}>
@@ -127,7 +115,7 @@ export const ProductCard: FC<Product> = ({
                variants={slideUpVariants(1)}
                className={styles.cardDescription}
             >
-               {description}
+               {props.description}
             </motion.p>
          </div>
          <motion.div

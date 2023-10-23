@@ -1,6 +1,4 @@
 "use client";
-import { useFetchSingleProductQuery } from "@/redux/api";
-import { Loader } from "../Loader/Loader";
 import { priceFormatter, priceWithDiscount } from "@/utils/index";
 import { Button } from "../Button/Button";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -18,20 +16,13 @@ import { Product } from "@/types/types";
 import clsx from "clsx";
 import styles from "./SingleProduct.module.scss";
 
-export const SingleProduct = ({ id }: { id: number }) => {
-   const { data: product, isLoading, error } = useFetchSingleProductQuery(id);
+export const SingleProduct = ({ product }: { product: Product }) => {
    const [successClickHandler, productAdded] = useCartButtonHandler(
       product?.id as number,
       product?.title as string,
       <DoneIcon />
    );
    const dispatch = useAppDispatch();
-   if (error) {
-      return <div>{error as string}</div>;
-   }
-   if (isLoading) {
-      return <Loader />;
-   }
 
    const priceWithDiscountValue = priceWithDiscount(
       product?.price as number,

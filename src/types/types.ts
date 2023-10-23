@@ -3,7 +3,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 export type ThemeContextType = {
    theme: "dark" | "light";
 };
-export type ButtonProps = {
+export type ButtonProps = React.ComponentPropsWithRef<"button"> & {
    children: React.ReactNode;
    variant: "button" | "link";
    href?: string;
